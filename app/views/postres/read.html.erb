@@ -1,2 +1,38 @@
-<h1>Postres#read</h1>
-<p>Find me in app/views/postres/read.html.erb</p>
+<% @postres.each do |postres| %>
+
+<section class="text-center">
+  <div class="container">
+    <h3 class="jumbotron-heading"><%= postres.nombre %></h3>
+  </div>
+</section>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <img
+          src="/assets/img/<%= postres.img %>"
+          class="img-fluid"
+          title="<%= postres.nombre %>"
+          alt="<%= postres.nombre %>"
+        />
+      </div>
+
+      <div class="col-md-5" align="left">
+        <strong>Stock:</strong>
+        <%= postres.stock %>
+
+        <br /><br />
+
+        <strong>Precio:</strong>
+        <%= postres.precio %>
+
+        <br /><br />
+
+        <strong>Creado:</strong>
+        <%= postres.created_at.strftime("%d/%m/%Y") %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
